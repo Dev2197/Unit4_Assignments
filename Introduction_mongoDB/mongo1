@@ -1,0 +1,183 @@
+> use assignment
+switched to db assignment
+> db
+assignment
+> db.createCollection("users")
+{ "ok" : 1 }
+> show dbs
+admin       0.000GB
+assignment  0.000GB
+config      0.000GB
+local       0.000GB
+> db.users.insert({ "first_name" : "A", "last_name" : "web15", "email" : "A@gmail.com", "gender" : "male", "ip_adress" : "1.2.7", "age" : "25" })
+> db.users.find({}).pretty()
+{
+        "_id" : ObjectId("62277d2414f9ebfa41c0263f"),
+        "first_name" : "A",
+        "last_name" : "web15",
+        "email" : "A@gmail.com",
+        "gender" : "male",
+        "ip_adress" : "1.2.7",
+        "age" : 25
+}
+> db.users.insert({ "first_name" : "B", "last_name" : "web15", "email" : "B@gmail.com", "gender" : "female", "ip_adress" : "1.2.7", "age" : 23 })
+WriteResult({ "nInserted" : 1 })
+> > db.users.insertMany([{ "first_name" : "B", "last_name" : "web15", "email" : "B@gmail.com", "gender" : "female", "ip_adress" : "1.2.7", "age" : 23 },{ "first_name" : "B", "last_name" : "web15", "email" : "B@gmail.com", "gender" : "female", "ip_adress" : "1.2.7", "age" : 23 }])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("62279aeb00a7e951b0c056cc"),
+                ObjectId("62279aeb00a7e951b0c056cd")
+        ]
+}
+> db.users.find({}).pretty()
+{        "_id" : ObjectId("62279a7f00a7e951b0c056ca"),                                               "first_name" : "A",
+        "last_name" : "web15",
+        "email" : "A@gmail.com",
+        "gender" : "male",
+        "ip_adress" : "1.2.7",
+        "age" : 25
+}
+{
+        "_id" : ObjectId("62279a8c00a7e951b0c056cb"),
+        "first_name" : "B",
+        "last_name" : "web15",
+        "email" : "B@gmail.com",
+        "gender" : "female",
+        "ip_adress" : "1.2.7",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("62279aeb00a7e951b0c056cc"),
+        "first_name" : "B",
+        "last_name" : "web15",
+        "email" : "B@gmail.com",
+        "gender" : "female",
+        "ip_adress" : "1.2.7",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("62279aeb00a7e951b0c056cd"),
+        "first_name" : "B",
+        "last_name" : "web15",
+        "email" : "B@gmail.com",
+        "gender" : "female",
+        "ip_adress" : "1.2.7",
+        "age" : 23
+}
+> db.users.insert({ "first_name" : "E", "last_name" : "web15", "email" : "E@gmail.com", "gender" : "female", "ip_adress" : "1.2.7.5", "age" : 18 }) 
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({ "first_name" : "F", "last_name" : "web15", "email" : "E@gmail.com", "gender" : "female", "ip_adress" : "1.2.7.5", "age" : 18 }) 
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({ "first_name" : "G", "last_name" : "web15", "email" : "G@gmail.com", "gender" : "male", "ip_adress" : "1.2.7.5", "age" : 18 })
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({ "first_name" : "H", "last_name" : "web15", "email" : "H@gmail.com", "gender" : "male", "ip_adress" : "1.2.7.5", "age" : 18 })  
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({ "first_name" : "I", "last_name" : "web15", "email" : "I@gmail.com", "gender" : "male", "ip_adress" : "1.2.7.5", "age" : 18 })
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({ "first_name" : "J", "last_name" : "web15", "email" : "I@gmail.com", "gender" : "male", "ip_adress" : "1.2.7.5", "age" : 18 })
+WriteResult({ "nInserted" : 1 })
+
+> db.users.find({}).pretty()
+{
+        "_id" : ObjectId("62279a7f00a7e951b0c056ca"),
+        "first_name" : "A",
+        "last_name" : "web15",
+        "email" : "A@gmail.com",
+        "gender" : "male",
+        "ip_adress" : "1.2.7",
+        "age" : 25
+}
+{
+        "_id" : ObjectId("62279a8c00a7e951b0c056cb"),
+        "first_name" : "B",
+        "last_name" : "web15",
+        "email" : "B@gmail.com",
+        "gender" : "female",
+        "ip_adress" : "1.2.7",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("62279aeb00a7e951b0c056cc"),
+        "first_name" : "B",
+        "last_name" : "web15",
+        "email" : "B@gmail.com",
+        "gender" : "female",
+        "ip_adress" : "1.2.7",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("62279aeb00a7e951b0c056cd"),
+        "first_name" : "B",
+        "last_name" : "web15",
+        "email" : "B@gmail.com",
+        "gender" : "female",
+        "ip_adress" : "1.2.7",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("62279c53a4bb60c569729de0"),
+        "first_name" : "E",
+        "last_name" : "web15",
+        "email" : "E@gmail.com",
+        "gender" : "female",
+        "ip_adress" : "1.2.7.5",
+        "age" : 18
+}
+{
+        "_id" : ObjectId("62279c82a4bb60c569729de1"),
+        "first_name" : "",
+        "last_name" : "web15",
+        "email" : "E@gmail.com",
+        "gender" : "female",
+        "ip_adress" : "1.2.7.5",
+        "age" : 18
+}
+{
+        "_id" : ObjectId("62279cc6a4bb60c569729de2"),
+        "first_name" : "G",
+        "last_name" : "web15",
+        "email" : "G@gmail.com",
+        "gender" : "male",
+        "ip_adress" : "1.2.7.5",
+        "age" : 18
+}
+{
+        "_id" : ObjectId("62279d72a4bb60c569729de3"),
+        "first_name" : "H",
+        "last_name" : "web15",
+        "email" : "H@gmail.com",
+        "gender" : "male",
+        "ip_adress" : "1.2.7.5",
+        "age" : 18
+}
+{
+        "_id" : ObjectId("62279d83a4bb60c569729de4"),
+        "first_name" : "I",
+        "last_name" : "web15",
+        "email" : "I@gmail.com",
+        "gender" : "male",
+        "ip_adress" : "1.2.7.5",
+        "age" : 18
+}
+{
+        "_id" : ObjectId("62279d95a4bb60c569729de5"),
+        "first_name" : "J",
+        "last_name" : "web15",
+        "email" : "I@gmail.com",
+        "gender" : "male",
+        "ip_adress" : "1.2.7.5",
+        "age" : 18
+}
+
+// update documents
+> db.users.updateMany({},{$set : {"country":"India"}})
+
+// delete documents
+> db.users.remove({})
+WriteResult({ "nRemoved" : 10 })
+
+// delete database
+> db.dropDatabase()
+{ "ok" : 1 }
+
